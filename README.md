@@ -17,3 +17,15 @@ and it provides rigid & easy-to-navigate project structure while
 lacking flexibility compared to other tools like webpack.
 - "Next.js" apps are easy to deploy, because they are just static files
 after compilation is complete.
+
+## How to Run
+```bash
+npm ci
+npm run dev
+```
+
+## How to Build
+```bash
+npm ci
+npm run build
+```
