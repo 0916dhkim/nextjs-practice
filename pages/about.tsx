@@ -1,6 +1,7 @@
 import Layout from "../components/Layout";
+import { FunctionComponent } from "react";
 
-const About = () => (
+const About: FunctionComponent = () => (
   <Layout>
     <div>
       <h1>About BitzPrice</h1>

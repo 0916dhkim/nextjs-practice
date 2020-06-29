@@ -1,10 +1,37 @@
-class Prices extends React.Component {
-  state = {
-    currency: "USD"
+import { Component, ChangeEvent } from "react";
+import { Bpi, Currency, CURRENCIES } from "./bpi";
+
+interface PricesProps {
+  bpi: Bpi
+};
+
+interface PricesState {
+  currency: Currency, 
+}
+
+class Prices extends Component<PricesProps, PricesState> {
+  constructor(props: PricesProps) {
+    super(props);
+    this.state = {
+      currency: "USD"
+    };
+  }
+
+  updateCurrency(e: ChangeEvent<HTMLSelectElement>) {
+    function isCurrency(x: string): x is Currency {
+      const currencyNames: Set<string> = new Set(CURRENCIES);
+      return currencyNames.has(x);
+    }
+    if (!isCurrency(e.target.value)) {
+      return;
+    }
+    this.setState({
+      currency: e.target.value
+    });
   }
 
   render() {
-    let list = "";
+    let list: JSX.Element | undefined;
     if (this.state.currency === "USD") {
       list = (
         <li className="list-group-item">
@@ -33,7 +60,7 @@ class Prices extends React.Component {
           {list}
         </ul>
         <br />
-        <select onChange={e => this.setState({ currency: e.target.value })} className="form-control">
+        <select onChange={this.updateCurrency.bind(this)} className="form-control">
           <option value="USD">USD</option>
           <option value="GBP">GBP</option>
           <option value="EUR">EUR</option>

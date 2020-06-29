@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Navbar from "./Navbar";
+import { FunctionComponent } from "react";
 
-const Layout = (props) => (
+const Layout: FunctionComponent = (props: { children?: any }) => (
   <div>
     <Head>
       <title>BitzPrice</title>

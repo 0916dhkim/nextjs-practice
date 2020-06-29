@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { FunctionComponent } from "react";
 
-const Navbar = () => (
+const Navbar: FunctionComponent = () => (
   <nav className="navbar navbar-expand navbar-dark bg-dark mb-4">
     <div className="container">
       <a className="navbar-brand" href="#">BitzPrice</a>
